@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Heart, Play, FileText, BookOpen } from "lucide-react";
 import { useToggleLike } from "@/hooks/useAppData";
 import type { FeedItem } from "@/data/mockData";
+import { SUBJECT_BADGE } from "@/data/mockData";
 import { motion } from "framer-motion";
 
 interface SpotifyRowProps {
@@ -20,6 +21,7 @@ export function SpotifyRow({ item, index, showIndex = true }: SpotifyRowProps) {
   };
 
   const TypeIcon = item.type === "video" ? Play : item.type === "pdf" ? FileText : BookOpen;
+  const subject = SUBJECT_BADGE[item.subject_id];
 
   return (
     <motion.button
@@ -61,7 +63,13 @@ export function SpotifyRow({ item, index, showIndex = true }: SpotifyRowProps) {
         <h4 className="text-sm font-medium text-foreground truncate leading-tight">
           {item.title}
         </h4>
-        <div className="flex items-center gap-1.5 mt-0.5">
+        <div className="flex items-center gap-1.5 mt-1 flex-wrap">
+          {/* Subject badge */}
+          {subject && (
+            <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-md flex-shrink-0 ${subject.bg} ${subject.color}`}>
+              {subject.label}
+            </span>
+          )}
           <TypeIcon size={10} className="text-muted-foreground flex-shrink-0" />
           <span className="text-xs text-muted-foreground truncate">
             {item.instructor || item.author}

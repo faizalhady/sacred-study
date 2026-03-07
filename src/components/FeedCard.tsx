@@ -2,6 +2,7 @@ import { Heart, Bookmark, FolderPlus, Play, FileText, BookOpen } from "lucide-re
 import { useNavigate } from "react-router-dom";
 import { useToggleLike, useToggleSave } from "@/hooks/useAppData";
 import type { FeedItem } from "@/data/mockData";
+import { SUBJECT_BADGE } from "@/data/mockData";
 
 interface FeedCardProps {
   item: FeedItem;
@@ -18,8 +19,8 @@ export function FeedCard({ item, onPlaylistAdd }: FeedCardProps) {
     else navigate(`/reader/${item.id}`);
   };
 
-  const typeIcon = item.type === "video" ? Play : item.type === "pdf" ? FileText : BookOpen;
-  const TypeIcon = typeIcon;
+  const TypeIcon = item.type === "video" ? Play : item.type === "pdf" ? FileText : BookOpen;
+  const subject = SUBJECT_BADGE[item.subject_id];
 
   return (
     <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm">
@@ -32,14 +33,25 @@ export function FeedCard({ item, onPlaylistAdd }: FeedCardProps) {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-foreground/5" />
+
+        {/* Duration badge */}
         {item.type === "video" && item.duration && (
           <div className="absolute bottom-2 right-2 bg-foreground/80 text-primary-foreground text-xs font-medium px-2 py-0.5 rounded-md">
             {item.duration}
           </div>
         )}
-        <div className="absolute top-2 left-2 bg-primary/90 text-primary-foreground text-xs font-medium px-2 py-0.5 rounded-md flex items-center gap-1">
-          <TypeIcon size={12} />
-          {item.type === "video" ? "Lecture" : item.type === "pdf" ? "Kitab" : "Article"}
+
+        {/* Top-left: type badge */}
+        <div className="absolute top-2 left-2 flex flex-col gap-1">
+          <div className="bg-primary/90 text-primary-foreground text-[10px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1 w-fit">
+            <TypeIcon size={10} />
+            {item.type === "video" ? "Lecture" : item.type === "pdf" ? "Kitab" : "Article"}
+          </div>
+          {subject && (
+            <div className={`${subject.bg} text-[10px] font-semibold px-2 py-0.5 rounded-md w-fit backdrop-blur-sm ${subject.color}`}>
+              {subject.label}
+            </div>
+          )}
         </div>
       </button>
 
