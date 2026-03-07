@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useFeed } from "@/hooks/useAppData";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { FileText, BookOpen, Search } from "lucide-react";
+import { SpotifyRow } from "@/components/SpotifyRow";
+import { Search } from "lucide-react";
 
 export default function ELibrary() {
   const { data: feedItems } = useFeed();
-  const navigate = useNavigate();
   const [filter, setFilter] = useState<"all" | "pdf" | "article">("all");
   const [search, setSearch] = useState("");
 
@@ -55,51 +54,18 @@ export default function ELibrary() {
           ))}
         </div>
 
-        {/* Items */}
-        <div className="space-y-3">
+        {/* Spotify-style list */}
+        <div className="bg-card rounded-2xl border border-border divide-y divide-border overflow-hidden">
           {items.map((item, i) => (
-            <motion.button
-              key={item.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              onClick={() => navigate(`/reader/${item.id}`)}
-              className="w-full bg-card border border-border rounded-2xl p-3.5 flex items-center gap-3.5 text-left"
-            >
-              {item.cover ? (
-                <img
-                  src={item.cover}
-                  alt={item.title}
-                  className="w-14 h-20 rounded-lg object-cover flex-shrink-0"
-                />
-              ) : (
-                <div className="w-14 h-20 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <BookOpen size={22} className="text-primary" />
-                </div>
-              )}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 mb-1">
-                  {item.type === "pdf" ? (
-                    <FileText size={12} className="text-accent" />
-                  ) : (
-                    <BookOpen size={12} className="text-primary" />
-                  )}
-                  <span className="text-[10px] font-medium text-muted-foreground uppercase">
-                    {item.type === "pdf" ? "Kitab" : "Article"}
-                  </span>
-                </div>
-                <h3 className="text-sm font-semibold text-card-foreground line-clamp-2">{item.title}</h3>
-                <p className="text-xs text-muted-foreground mt-0.5">{item.author}</p>
-              </div>
-            </motion.button>
+            <SpotifyRow key={item.id} item={item} index={i} />
           ))}
-
-          {items.length === 0 && (
-            <div className="text-center py-12 text-muted-foreground text-sm">
-              No items found
-            </div>
-          )}
         </div>
+
+        {items.length === 0 && (
+          <div className="text-center py-12 text-muted-foreground text-sm">
+            No items found
+          </div>
+        )}
       </div>
     </div>
   );
