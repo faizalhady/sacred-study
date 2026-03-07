@@ -1,7 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { feed, subjects, modules, userProfile, type FeedItem, type Playlist } from "@/data/mockData";
+import { feed, subjects, modules, userProfile, type FeedItem, type Playlist, type Module } from "@/data/mockData";
 
-// Simulate async fetch
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export function useFeed() {
@@ -78,19 +77,35 @@ export function useToggleLike() {
       return id;
     },
     onMutate: async (id) => {
+      // Cancel both feed and feedItem queries
       await qc.cancelQueries({ queryKey: ["feed"] });
-      const prev = qc.getQueryData<FeedItem[]>(["feed"]);
-      qc.setQueryData<FeedItem[]>(["feed"], (old) =>
-        old?.map((item) =>
-          item.id === id
-            ? { ...item, isLiked: !item.isLiked, likes: (item.likes ?? 0) + (item.isLiked ? -1 : 1) }
-            : item
-        )
-      );
-      return { prev };
+      await qc.cancelQueries({ queryKey: ["feedItem", id] });
+
+      const prevFeed = qc.getQueryData<FeedItem[]>(["feed"]);
+      const prevItem = qc.getQueryData<FeedItem>(["feedItem", id]);
+
+      const updater = (item: FeedItem) =>
+        item.id === id
+          ? {
+              ...item,
+              isLiked: !item.isLiked,
+              likes: (item.likes ?? 0) + (item.isLiked ? -1 : 1),
+            }
+          : item;
+
+      // Update feed list cache
+      qc.setQueryData<FeedItem[]>(["feed"], (old) => old?.map(updater));
+
+      // Update individual item cache
+      if (prevItem) {
+        qc.setQueryData<FeedItem>(["feedItem", id], updater(prevItem));
+      }
+
+      return { prevFeed, prevItem };
     },
-    onError: (_err, _id, ctx) => {
-      if (ctx?.prev) qc.setQueryData(["feed"], ctx.prev);
+    onError: (_err, id, ctx) => {
+      if (ctx?.prevFeed) qc.setQueryData(["feed"], ctx.prevFeed);
+      if (ctx?.prevItem) qc.setQueryData(["feedItem", id], ctx.prevItem);
     },
   });
 }
@@ -104,16 +119,25 @@ export function useToggleSave() {
     },
     onMutate: async (id) => {
       await qc.cancelQueries({ queryKey: ["feed"] });
-      const prev = qc.getQueryData<FeedItem[]>(["feed"]);
-      qc.setQueryData<FeedItem[]>(["feed"], (old) =>
-        old?.map((item) =>
-          item.id === id ? { ...item, isSaved: !item.isSaved } : item
-        )
-      );
-      return { prev };
+      await qc.cancelQueries({ queryKey: ["feedItem", id] });
+
+      const prevFeed = qc.getQueryData<FeedItem[]>(["feed"]);
+      const prevItem = qc.getQueryData<FeedItem>(["feedItem", id]);
+
+      const updater = (item: FeedItem) =>
+        item.id === id ? { ...item, isSaved: !item.isSaved } : item;
+
+      qc.setQueryData<FeedItem[]>(["feed"], (old) => old?.map(updater));
+
+      if (prevItem) {
+        qc.setQueryData<FeedItem>(["feedItem", id], updater(prevItem));
+      }
+
+      return { prevFeed, prevItem };
     },
-    onError: (_err, _id, ctx) => {
-      if (ctx?.prev) qc.setQueryData(["feed"], ctx.prev);
+    onError: (_err, id, ctx) => {
+      if (ctx?.prevFeed) qc.setQueryData(["feed"], ctx.prevFeed);
+      if (ctx?.prevItem) qc.setQueryData(["feedItem", id], ctx.prevItem);
     },
   });
 }
@@ -131,7 +155,10 @@ export function useCreatePlaylist() {
       return newPlaylist;
     },
     onSuccess: (newPlaylist) => {
-      qc.setQueryData<Playlist[]>(["playlists"], (old) => [...(old ?? []), newPlaylist]);
+      qc.setQueryData<Playlist[]>(["playlists"], (old) => [
+        ...(old ?? []),
+        newPlaylist,
+      ]);
     },
   });
 }
