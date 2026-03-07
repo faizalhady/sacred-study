@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Play, BookOpen, GraduationCap, Library } from "lucide-react";
+import { BookOpen, GraduationCap, Library, Play } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const quickActions = [
   { label: "Continue", icon: Play, route: "/home", color: "bg-primary text-primary-foreground" },
@@ -35,12 +35,12 @@ export function HeroSection() {
         </p>
 
         {/* Quick action buttons */}
-        <div className="flex gap-2 mt-4">
+        <div className="grid grid-cols-2 gap-2 mt-4">
           {quickActions.map((action) => (
             <button
               key={action.label}
               onClick={() => navigate(action.route)}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold ${action.color} transition-transform active:scale-95 shadow-sm`}
+              className={`flex w-full items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold ${action.color} transition-transform active:scale-95 shadow-sm`}
             >
               <action.icon size={14} />
               {action.label}
