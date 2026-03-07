@@ -55,12 +55,12 @@ export const SUBJECT_BADGE: Record<
   string,
   { label: string; color: string; bg: string }
 > = {
-  s1: { label: "Akidah",    color: "text-violet-400",  bg: "bg-violet-400/15"  },
-  s2: { label: "Tafsir",    color: "text-sky-400",     bg: "bg-sky-400/15"     },
-  s3: { label: "Hadis",     color: "text-emerald-400", bg: "bg-emerald-400/15" },
-  s4: { label: "Tajwid",    color: "text-teal-400",    bg: "bg-teal-400/15"    },
-  s5: { label: "Usul Fiqh", color: "text-amber-400",   bg: "bg-amber-400/15"   },
-  s6: { label: "Seerah",    color: "text-rose-400",    bg: "bg-rose-400/15"    },
+  s1: { label: "Akidah", color: "text-violet-400", bg: "bg-violet-400/15" },
+  s2: { label: "Tafsir", color: "text-sky-400", bg: "bg-sky-400/15" },
+  s3: { label: "Hadis", color: "text-emerald-400", bg: "bg-emerald-400/15" },
+  s4: { label: "Tajwid", color: "text-teal-400", bg: "bg-teal-400/15" },
+  s5: { label: "Usul Fiqh", color: "text-amber-400", bg: "bg-amber-400/15" },
+  s6: { label: "Seerah", color: "text-rose-400", bg: "bg-rose-400/15" },
 };
 
 // ─── Level metadata ───────────────────────────────────────────────────────────
@@ -68,10 +68,10 @@ export const LEVEL_META: Record<
   0 | 1 | 2 | 3,
   { label: string; sublabel: string; color: string; bg: string }
 > = {
-  0: { label: "Level 0", sublabel: "Muqaddimah",   color: "text-slate-400",   bg: "bg-slate-400/10"  },
-  1: { label: "Level 1", sublabel: "Asas",          color: "text-emerald-400", bg: "bg-emerald-400/10" },
-  2: { label: "Level 2", sublabel: "Pertengahan",   color: "text-amber-400",   bg: "bg-amber-400/10"   },
-  3: { label: "Level 3", sublabel: "Lanjutan",      color: "text-rose-400",    bg: "bg-rose-400/10"    },
+  0: { label: "Level 0", sublabel: "Muqaddimah", color: "text-slate-400", bg: "bg-slate-400/10" },
+  1: { label: "Level 1", sublabel: "Asas", color: "text-emerald-400", bg: "bg-emerald-400/10" },
+  2: { label: "Level 2", sublabel: "Pertengahan", color: "text-amber-400", bg: "bg-amber-400/10" },
+  3: { label: "Level 3", sublabel: "Lanjutan", color: "text-rose-400", bg: "bg-rose-400/10" },
 };
 
 // ─── Image helpers ────────────────────────────────────────────────────────────
@@ -83,12 +83,12 @@ const cover = (seed: number, w = 300, h = 420) =>
 
 // ─── Subjects ─────────────────────────────────────────────────────────────────
 export const subjects: Subject[] = [
-  { id: "s1", title: "Akidah",      description: "Ilmu Tauhid & Foundations of Belief",  level: "Level 0–3", icon: "🕌", moduleCount: 4 },
-  { id: "s2", title: "Tafsir",      description: "Quranic Exegesis & Al-Quran Sciences", level: "Level 0–3", icon: "📖", moduleCount: 4 },
-  { id: "s3", title: "Hadis",       description: "Matan Hadis & Mustalah al-Hadith",      level: "Level 0–3", icon: "📜", moduleCount: 4 },
-  { id: "s4", title: "Tajwid",      description: "Quranic Recitation Rules",              level: "Level 0–1", icon: "🎙️", moduleCount: 2 },
-  { id: "s5", title: "Usul Fiqh",   description: "Islamic Jurisprudence & Qawaid",        level: "Level 0–3", icon: "⚖️", moduleCount: 4 },
-  { id: "s6", title: "Seerah",      description: "Life of the Prophet ﷺ",                level: "Level 0–3", icon: "🌙", moduleCount: 4 },
+  { id: "s1", title: "Akidah", description: "Ilmu Tauhid & Foundations of Belief", level: "Level 0–3", icon: "🕌", moduleCount: 4 },
+  { id: "s2", title: "Tafsir", description: "Quranic Exegesis & Al-Quran Sciences", level: "Level 0–3", icon: "📖", moduleCount: 4 },
+  { id: "s3", title: "Hadis", description: "Matan Hadis & Mustalah al-Hadith", level: "Level 0–3", icon: "📜", moduleCount: 4 },
+  { id: "s4", title: "Tajwid", description: "Quranic Recitation Rules", level: "Level 0–1", icon: "🎙️", moduleCount: 2 },
+  { id: "s5", title: "Usul Fiqh", description: "Islamic Jurisprudence & Qawaid", level: "Level 0–3", icon: "⚖️", moduleCount: 4 },
+  { id: "s6", title: "Seerah", description: "Life of the Prophet ﷺ", level: "Level 0–3", icon: "🌙", moduleCount: 4 },
 ];
 
 // ─── Modules ──────────────────────────────────────────────────────────────────
@@ -338,7 +338,7 @@ export const feed: FeedItem[] = [
     title: "Introduction to Usool at-Thalatha",
     instructor: "Ustadh Abu Yahya",
     duration: "45:00",
-    thumbnail: thumb(10),
+    thumbnail: thumb(3),
     likes: 124,
     isLiked: true,
     isSaved: false,
@@ -366,7 +366,7 @@ export const feed: FeedItem[] = [
     title: "Makharij al-Huruf: Points of Articulation",
     instructor: "Qari Muhammad Saleem",
     duration: "28:40",
-    thumbnail: thumb(30),
+    thumbnail: thumb(90),
     likes: 198,
     isLiked: false,
     isSaved: false,
@@ -380,7 +380,7 @@ export const feed: FeedItem[] = [
     title: "Tafsir Surah Al-Fatiha - Part 1",
     instructor: "Ustadh Abdur-Rahman Hassan",
     duration: "55:20",
-    thumbnail: thumb(40),
+    thumbnail: thumb(43),
     likes: 342,
     isLiked: true,
     isSaved: true,
@@ -503,7 +503,7 @@ export const feed: FeedItem[] = [
     subject_id: "s5",
     title: "Bulugh al-Maram",
     author: "Ibn Hajar al-Asqalani",
-    cover: cover(105),
+    cover: cover(101),
     likes: 163,
     isLiked: false,
     isSaved: true,
@@ -516,7 +516,7 @@ export const feed: FeedItem[] = [
     subject_id: "s6",
     title: "Sealed Nectar — Ar-Raheeq Al-Makhtum",
     author: "Safi-ur-Rahman al-Mubarakpuri",
-    cover: cover(106),
+    cover: cover(100),
     likes: 298,
     isLiked: true,
     isSaved: false,
@@ -597,10 +597,10 @@ export const userProfile: UserProfile = {
   name: "Student User",
   email: "student@example.com",
   playlists: [
-    { id: "p1", name: "Ramadan Prep",    item_count: 4 },
-    { id: "p2", name: "Weekend Study",   item_count: 7 },
+    { id: "p1", name: "Ramadan Prep", item_count: 4 },
+    { id: "p2", name: "Weekend Study", item_count: 7 },
     { id: "p3", name: "Tajwid Practice", item_count: 3 },
-    { id: "p4", name: "Seerah Series",   item_count: 5 },
+    { id: "p4", name: "Seerah Series", item_count: 5 },
   ],
   savedKitabs: feed.filter((f) => f.isSaved && f.type === "pdf"),
   likedLectures: feed.filter((f) => f.isLiked),
