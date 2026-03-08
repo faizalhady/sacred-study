@@ -273,7 +273,7 @@ function ArticleReaderView({
       animate={{ x: 0 }}
       exit={{ x: "100%" }}
       transition={{ type: "spring", damping: 28, stiffness: 280 }}
-      className="fixed inset-0 bg-background z-50 flex flex-col max-w-lg mx-auto"
+      className="fixed inset-0 bg-background z-50 flex flex-col max-w-lg lg:max-w-5xl mx-auto"
     >
       {/* Top bar */}
       <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-3 bg-background/90 backdrop-blur border-b border-border">
