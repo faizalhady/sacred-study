@@ -19,15 +19,14 @@ export function AppHeader({ title, subtitle, rightSlot, leftSlot }: AppHeaderPro
 
   return (
     <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border lg:ml-64">
-      {/* relative container — left/right are absolute so center is always truly centred */}
-      <div className="px-4 max-w-lg lg:max-w-5xl mx-auto relative flex items-center h-14">
-
+      {/* ── Mobile header (unchanged) ── */}
+      <div className="px-4 max-w-lg mx-auto relative flex items-center h-14 lg:hidden">
         {/* Left — absolutely positioned */}
         <div className="absolute left-4 flex items-center">
           {leftSlot ? leftSlot : (
             <button
               onClick={toggle}
-              className="w-8 h-8 rounded-xl bg-muted flex items-center justify-center text-foreground active:scale-95 transition-transform lg:hidden"
+              className="w-8 h-8 rounded-xl bg-muted flex items-center justify-center text-foreground active:scale-95 transition-transform"
               aria-label="Open menu"
             >
               <Menu size={18} />
@@ -70,7 +69,34 @@ export function AppHeader({ title, subtitle, rightSlot, leftSlot }: AppHeaderPro
           </button>
           {rightSlot && <div className="flex-shrink-0">{rightSlot}</div>}
         </div>
+      </div>
 
+      {/* ── Desktop header ── */}
+      <div className="hidden lg:flex items-center justify-between h-14 px-6 max-w-5xl mx-auto">
+        <div className="flex items-center gap-3 min-w-0">
+          {leftSlot}
+          <div className="min-w-0">
+            <h1 className="text-lg font-semibold text-foreground leading-tight truncate">
+              {title || "'Ilm Platform"}
+            </h1>
+            {subtitle && (
+              <p className="text-xs text-muted-foreground leading-tight truncate">
+                {subtitle}
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="w-8 h-8 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+          {rightSlot && <div className="flex-shrink-0">{rightSlot}</div>}
+        </div>
       </div>
     </div>
   );
