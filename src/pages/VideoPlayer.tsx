@@ -281,7 +281,7 @@ export default function VideoPlayer() {
       </div>
 
       {/* ── Content ── */}
-      <div className="max-w-lg mx-auto px-5 py-5">
+      <div className="max-w-lg lg:max-w-5xl mx-auto px-5 py-5">
         {/* Instructor row */}
         <div className="flex items-center gap-3 mb-3">
           <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">

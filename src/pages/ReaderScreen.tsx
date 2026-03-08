@@ -134,7 +134,7 @@ function PdfReaderView({
       animate={{ x: 0 }}
       exit={{ x: "100%" }}
       transition={{ type: "spring", damping: 28, stiffness: 280 }}
-      className="fixed inset-0 bg-[#1a1a2e] z-50 flex flex-col max-w-lg mx-auto"
+      className="fixed inset-0 bg-[#1a1a2e] z-50 flex flex-col max-w-lg lg:max-w-5xl mx-auto"
     >
       {/* Top bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-[#16213e]">
@@ -273,7 +273,7 @@ function ArticleReaderView({
       animate={{ x: 0 }}
       exit={{ x: "100%" }}
       transition={{ type: "spring", damping: 28, stiffness: 280 }}
-      className="fixed inset-0 bg-background z-50 flex flex-col max-w-lg mx-auto"
+      className="fixed inset-0 bg-background z-50 flex flex-col max-w-lg lg:max-w-5xl mx-auto"
     >
       {/* Top bar */}
       <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-3 bg-background/90 backdrop-blur border-b border-border">
@@ -387,7 +387,7 @@ export default function ReaderScreen() {
       </div>
 
       {/* ── Content ── */}
-      <div className="max-w-lg mx-auto px-5">
+      <div className="max-w-lg lg:max-w-5xl mx-auto px-5">
 
         {/* Action row */}
         <div className="flex items-center gap-5 py-4 border-b border-border">

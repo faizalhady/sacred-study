@@ -46,7 +46,7 @@ export function PlaylistModal({ isOpen, onClose }: PlaylistModalProps) {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 z-50 bg-card rounded-t-3xl max-h-[70vh] overflow-hidden"
+            className="fixed bottom-0 left-0 right-0 z-50 bg-card rounded-t-3xl max-h-[70vh] overflow-hidden lg:max-w-lg lg:mx-auto"
           >
             {/* Handle */}
             <div className="flex justify-center pt-3 pb-1">
