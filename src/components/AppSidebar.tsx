@@ -118,7 +118,7 @@ export function AppSidebar() {
       </div>
 
       {/* Footer — user card + version */}
-      <div className="px-4 pb-6 border-t border-border pt-4">
+      <div className="px-4 pb-3 border-t border-border pt-3">
         <button
           onClick={() => handleNav("/profile")}
           className="w-full bg-primary/10 rounded-2xl p-3 flex items-center gap-3 hover:bg-primary/15 transition-colors"
