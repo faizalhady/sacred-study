@@ -387,7 +387,7 @@ export default function ReaderScreen() {
       </div>
 
       {/* ── Content ── */}
-      <div className="max-w-lg mx-auto px-5">
+      <div className="max-w-lg lg:max-w-5xl mx-auto px-5">
 
         {/* Action row */}
         <div className="flex items-center gap-5 py-4 border-b border-border">

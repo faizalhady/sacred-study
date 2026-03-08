@@ -185,7 +185,7 @@ export default function ProfileScreen() {
         </div>
 
         {/* ── Stats ── */}
-        <div className="grid grid-cols-4 gap-2 mb-5">
+        <div className="grid grid-cols-4 gap-2 mb-5 lg:gap-4">
           {stats.map((s) => (
             <div
               key={s.label}

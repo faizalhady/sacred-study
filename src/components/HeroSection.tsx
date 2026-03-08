@@ -35,7 +35,7 @@ export function HeroSection() {
         </p>
 
         {/* Quick action buttons */}
-        <div className="grid grid-cols-2 gap-2 mt-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-4">
           {quickActions.map((action) => (
             <button
               key={action.label}

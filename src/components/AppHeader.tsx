@@ -18,7 +18,7 @@ export function AppHeader({ title, subtitle, rightSlot, leftSlot }: AppHeaderPro
   const navigate = useNavigate();
 
   return (
-    <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border">
+    <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border lg:ml-64">
       {/* ── Mobile header (unchanged) ── */}
       <div className="px-4 max-w-lg mx-auto relative flex items-center h-14 lg:hidden">
         {/* Left — absolutely positioned */}
