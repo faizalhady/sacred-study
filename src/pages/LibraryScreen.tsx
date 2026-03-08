@@ -50,7 +50,7 @@ function EmptyState({
   title,
   subtitle,
 }: {
-  icon: React.ComponentType<{ size: number; className: string }>;
+  icon: React.ComponentType<any>;
   title: string;
   subtitle: string;
 }) {
