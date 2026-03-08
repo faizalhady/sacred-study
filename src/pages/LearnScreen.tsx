@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
-import { useSubjects, useModules } from "@/hooks/useAppData";
-import { useParams, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { AppHeader } from "@/components/AppHeader";
+import type { Module, Subject } from "@/data/mockData";
+import { LEVEL_META } from "@/data/mockData";
+import { useModules, useSubjects } from "@/hooks/useAppData";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  ChevronRight,
   ArrowLeft,
   BookOpen,
-  ChevronDown,
   CheckCircle2,
-  Lock,
+  ChevronDown,
+  ChevronRight,
   Circle,
+  Lock,
 } from "lucide-react";
-import { AppHeader } from "@/components/AppHeader";
-import { LEVEL_META } from "@/data/mockData";
-import type { Subject, Module } from "@/data/mockData";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 // ─── Subject grid card ────────────────────────────────────────────────────────
 function SubjectCard({
@@ -75,9 +75,8 @@ function ModuleRow({
 
   return (
     <div
-      className={`flex items-start gap-3 p-3.5 rounded-xl transition-colors ${
-        isLocked ? "opacity-50" : "hover:bg-muted/40"
-      }`}
+      className={`flex items-start gap-3 p-3.5 rounded-xl transition-colors ${isLocked ? "opacity-50" : "hover:bg-muted/40"
+        }`}
     >
       {/* Progress / lock icon */}
       <div className="mt-0.5 flex-shrink-0">
@@ -180,10 +179,10 @@ function LevelSection({
             {level === 0
               ? "Muqaddimah / Pengenalan"
               : level === 1
-              ? "Asas"
-              : level === 2
-              ? "Pertengahan"
-              : "Lanjutan"}
+                ? "Asas"
+                : level === 2
+                  ? "Pertengahan"
+                  : "Lanjutan"}
           </p>
           <p className="text-[11px] text-muted-foreground">
             {completed}/{total} selesai
@@ -197,9 +196,8 @@ function LevelSection({
 
         <ChevronDown
           size={16}
-          className={`text-muted-foreground flex-shrink-0 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`text-muted-foreground flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
 
@@ -388,7 +386,7 @@ export default function LearnScreen() {
               </div>
 
               {/* Level legend */}
-              <div className="flex gap-2 mb-4 flex-wrap">
+              {/* <div className="flex gap-2 mb-4 flex-wrap">
                 {([0, 1, 2, 3] as const).map((lv) => {
                   const m = LEVEL_META[lv];
                   return (
@@ -405,7 +403,7 @@ export default function LearnScreen() {
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
 
               {/* Subject grid */}
               <div className="grid grid-cols-2 gap-3">
