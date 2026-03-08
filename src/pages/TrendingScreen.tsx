@@ -24,7 +24,7 @@ export default function TrendingScreen() {
     <div className="min-h-screen bg-background pb-24">
       <AppHeader title="Trending" subtitle="Most liked content" />
 
-      <div className="max-w-lg mx-auto px-4 mt-4">
+      <div className="max-w-lg lg:max-w-5xl mx-auto px-4 mt-4">
         {/* Section label */}
         <div className="flex items-center gap-2 mb-3">
           <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center">

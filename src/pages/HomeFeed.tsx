@@ -84,7 +84,7 @@ export default function HomeFeed() {
     <div className="min-h-screen bg-background pb-24">
       <AppHeader title="Home" />
 
-      <div className="max-w-lg mx-auto">
+      <div className="max-w-lg lg:max-w-5xl mx-auto">
         <HadithCarousel />
 
         {/* ── Resume Watching ── */}

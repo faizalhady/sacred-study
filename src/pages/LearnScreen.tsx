@@ -356,7 +356,7 @@ export default function LearnScreen() {
         }
       />
 
-      <div className="max-w-lg mx-auto px-4 mt-5">
+      <div className="max-w-lg lg:max-w-5xl mx-auto px-4 mt-5">
         <AnimatePresence mode="wait">
           {!selected ? (
             <motion.div

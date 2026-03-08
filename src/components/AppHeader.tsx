@@ -18,16 +18,16 @@ export function AppHeader({ title, subtitle, rightSlot, leftSlot }: AppHeaderPro
   const navigate = useNavigate();
 
   return (
-    <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border">
+    <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border lg:ml-64">
       {/* relative container — left/right are absolute so center is always truly centred */}
-      <div className="px-4 max-w-lg mx-auto relative flex items-center h-14">
+      <div className="px-4 max-w-lg lg:max-w-5xl mx-auto relative flex items-center h-14">
 
         {/* Left — absolutely positioned */}
         <div className="absolute left-4 flex items-center">
           {leftSlot ? leftSlot : (
             <button
               onClick={toggle}
-              className="w-8 h-8 rounded-xl bg-muted flex items-center justify-center text-foreground active:scale-95 transition-transform"
+              className="w-8 h-8 rounded-xl bg-muted flex items-center justify-center text-foreground active:scale-95 transition-transform lg:hidden"
               aria-label="Open menu"
             >
               <Menu size={18} />

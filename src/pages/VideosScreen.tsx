@@ -167,7 +167,7 @@ export default function VideosScreen() {
     <div className="min-h-screen bg-background pb-24">
       <AppHeader title="Videos" subtitle="Lectures & lessons" />
 
-      <div className="max-w-lg mx-auto px-4 mt-4 space-y-3">
+      <div className="max-w-lg lg:max-w-5xl mx-auto px-4 mt-4 space-y-3">
         {/* Search */}
         <div className="relative">
           <Search
