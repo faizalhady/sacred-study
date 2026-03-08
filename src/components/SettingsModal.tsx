@@ -88,7 +88,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
             </div>
 
             {/* Content */}
-            <div className="px-5 pb-24 lg:pb-8 overflow-y-auto flex-1">
+            <div className="px-5 pb-24 lg:pb-8 overflow-y-auto flex-1 min-h-0">
               {tab === "account" && (
                 <div className="space-y-4">
                   <div>
