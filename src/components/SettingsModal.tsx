@@ -36,7 +36,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-foreground/40 z-50"
+            className="fixed inset-0 bg-foreground/40 z-50 lg:left-64"
             onClick={onClose}
           />
           <motion.div
