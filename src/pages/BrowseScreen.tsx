@@ -22,7 +22,7 @@ export default function BrowseScreen() {
     <div className="min-h-screen bg-background pb-24">
       <AppHeader title="Browse" subtitle="Kitabs & Articles" />
 
-      <div className="max-w-lg mx-auto px-4 mt-4">
+      <div className="max-w-lg lg:max-w-5xl mx-auto px-4 mt-4">
         {/* Search */}
         <div className="relative mb-4">
           <Search

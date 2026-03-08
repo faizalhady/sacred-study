@@ -27,7 +27,7 @@ export function AppHeader({ title, subtitle, rightSlot, leftSlot }: AppHeaderPro
           {leftSlot ? leftSlot : (
             <button
               onClick={toggle}
-              className="w-8 h-8 rounded-xl bg-muted flex items-center justify-center text-foreground active:scale-95 transition-transform"
+              className="w-8 h-8 rounded-xl bg-muted flex items-center justify-center text-foreground active:scale-95 transition-transform lg:hidden"
               aria-label="Open menu"
             >
               <Menu size={18} />

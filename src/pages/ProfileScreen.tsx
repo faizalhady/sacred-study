@@ -160,7 +160,7 @@ export default function ProfileScreen() {
         }
       />
 
-      <div className="max-w-lg mx-auto px-4">
+      <div className="max-w-lg lg:max-w-5xl mx-auto px-4">
 
         {/* ── Avatar ── */}
         <div className="flex flex-col items-center pt-8 pb-6">

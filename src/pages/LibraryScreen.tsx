@@ -86,7 +86,7 @@ export default function LibraryScreen() {
     <div className="min-h-screen bg-background pb-24">
       <AppHeader title="My Library" subtitle="Your personal collection" />
 
-      <div className="max-w-lg mx-auto">
+      <div className="max-w-lg lg:max-w-5xl mx-auto">
         {/* Tab bar — horizontally scrollable */}
         <div className="flex gap-1 px-4 pt-4 pb-3 overflow-x-auto hide-scrollbar">
           {TABS.map((t) => {

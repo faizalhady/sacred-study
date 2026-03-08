@@ -14,7 +14,7 @@ export function BottomTabBar() {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-tab-bar border-t border-border safe-bottom">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-tab-bar border-t border-border safe-bottom lg:hidden">
       <div className="mx-auto max-w-lg flex items-center h-16">
         {tabs.map((tab) => {
           const isActive =
