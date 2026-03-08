@@ -58,20 +58,6 @@ export function AppSidebar() {
 
   const sidebarNav = (
     <>
-      {/* User card */}
-      <div className="mx-4 mb-4 bg-primary/10 rounded-2xl p-4 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
-          <span className="text-sm font-bold text-primary-foreground">SU</span>
-        </div>
-        <div className="min-w-0">
-          <p className="text-sm font-semibold text-foreground truncate">Student User</p>
-          <p className="text-xs text-muted-foreground truncate">student@example.com</p>
-        </div>
-        <button onClick={() => handleNav("/profile")} className="ml-auto flex-shrink-0 text-muted-foreground">
-          <ChevronRight size={16} />
-        </button>
-      </div>
-
       {/* Scrollable nav area */}
       <div className="flex-1 overflow-y-auto sidebar-scrollbar">
         <div className="px-3 mb-2">
@@ -120,17 +106,31 @@ export function AppSidebar() {
               {item.label}
             </button>
           ))}
+          {/* Log Out — under More items */}
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors mb-0.5"
+          >
+            <LogOut size={18} strokeWidth={1.8} />
+            Log Out
+          </button>
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="px-3 pb-8 border-t border-border pt-4">
+      {/* Footer — user card + version */}
+      <div className="px-4 pb-6 border-t border-border pt-4">
         <button
-          onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors"
+          onClick={() => handleNav("/profile")}
+          className="w-full bg-primary/10 rounded-2xl p-3 flex items-center gap-3 hover:bg-primary/15 transition-colors"
         >
-          <LogOut size={18} strokeWidth={1.8} />
-          Log Out
+          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+            <span className="text-sm font-bold text-primary-foreground">SU</span>
+          </div>
+          <div className="min-w-0 text-left">
+            <p className="text-sm font-semibold text-foreground truncate">Student User</p>
+            <p className="text-xs text-muted-foreground truncate">student@example.com</p>
+          </div>
+          <ChevronRight size={16} className="ml-auto flex-shrink-0 text-muted-foreground" />
         </button>
         <p className="text-[10px] text-muted-foreground text-center mt-3">'Ilm Platform v1.0.0</p>
       </div>
