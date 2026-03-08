@@ -73,7 +73,7 @@ export function AppSidebar() {
       </div>
 
       {/* Scrollable nav area */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto sidebar-scrollbar">
         <div className="px-3 mb-2">
           <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider px-2 mb-1">Navigation</p>
           {navItems.map((item) => {
