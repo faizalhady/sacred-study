@@ -25,7 +25,7 @@ function MainLayout() {
   return (
     <>
       <AppSidebar />
-      <div className="max-w-lg mx-auto min-h-screen relative lg:ml-64 lg:max-w-5xl">
+      <div className="max-w-lg mx-auto min-h-screen relative lg:pl-64 lg:max-w-none">
         <Outlet />
         <BottomTabBar />
       </div>
