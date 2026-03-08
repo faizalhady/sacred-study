@@ -134,7 +134,7 @@ function PdfReaderView({
       animate={{ x: 0 }}
       exit={{ x: "100%" }}
       transition={{ type: "spring", damping: 28, stiffness: 280 }}
-      className="fixed inset-0 bg-[#1a1a2e] z-50 flex flex-col max-w-lg mx-auto"
+      className="fixed inset-0 bg-[#1a1a2e] z-50 flex flex-col max-w-lg lg:max-w-5xl mx-auto"
     >
       {/* Top bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-[#16213e]">
