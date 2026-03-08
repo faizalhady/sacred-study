@@ -21,7 +21,7 @@ import type { FeedItem } from "@/data/mockData";
 
 type Tab = "saved" | "liked" | "playlists" | "history";
 
-const TABS: { key: Tab; label: string; icon: React.ComponentType<{ size: number; className?: string; strokeWidth?: number }> }[] = [
+const TABS: { key: Tab; label: string; icon: React.ComponentType<any> }[] = [
   { key: "saved", label: "Saved", icon: BookMarked },
   { key: "liked", label: "Liked", icon: Heart },
   { key: "playlists", label: "Playlists", icon: FolderOpen },
